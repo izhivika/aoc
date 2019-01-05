@@ -12,20 +12,29 @@ for i in range(len(data)):
 	for j in 0,1:
 		for k in 0,1:
 			data[i][j][k] = int(data[i][j][k])
-width = 0
-height = 0
+max_x_s = 0
+max_width = 0
+max_y_s = 0
+max_height = 0
+for i in range(len(data)):
+	if data[i][0][0] > max_x_s:
+		max_x_s = data[i][0][0]
+	if data[i][0][1] > max_y_s:
+		max_y_s = data[i][0][1]
+	if data[i][1][0] > max_width:
+		max_width = data[i][1][0]
+	if data[i][1][1] > max_height:
+		max_height = data[i][1][1]
+max_x_f = max_x_s + max_width
+max_y_f = max_y_s + max_height
+a = [[0 for j in range(max_x_f)] for i in range(max_y_f)]
+for i in range(len(data)):
+	for j in range(data[i][0][0], (data[i][0][0] + data[i][1][0])):
+		for k in range(data[i][0][1], (data[i][0][1] + data[i][1][1])):
+			a[j][k] += 1
 area = 0
-check = False
-for i in range(len(x)):
-	x_s_i = data[i][0][0]
-	x_f_i = x_s_i + data[i][1][0]
-	y_s_i = data[i][0][1]
-	y_f_i = y_s_i + data[i][1][1]
-	x_s_j = data[j][0][0]
-	x_f_j = x_s_j + data[j][1][0]
-	y_s_j = data[j][0][1]
-	y_f_j = y_s_j + data[j][1][1]
-	if check == False:
-		for j in range(len(x)):
-			if 
-print(data)
+for i in range(max_y_f):
+	for j in range(max_x_f):
+		if a[i][j] > 1:
+			area += 1
+print(area)
