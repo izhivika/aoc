@@ -9,10 +9,7 @@ for i in range(len(a)):
 	for j in range(1, 11):
 		date += a[i][j]
 	b[i][0] = date
-	if int(a[i][12]+a[i][13]) == 0:
-		b[i][1] = 24
-	else:
-		b[i][1] = int(a[i][12]+a[i][13])
+	b[i][1] = int(a[i][12]+a[i][13])
 	b[i][2] = int(a[i][15]+a[i][16])
 	if a[i][19] == 'G':
 		q = a[i][26]
